@@ -1,0 +1,38 @@
+.horizontal-nav-container {
+    width: 100%;
+    height: 100px;
+    background-color: #020203;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+
+    .logo {
+        width: 160px;
+        height: 100px;
+    }
+    
+    .horizontal-nav {
+        display: flex;
+        align-items: center;
+        width: calc(100% - 160px);
+        height: 100%;
+        padding: 0px 40px;
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: calc(100% - 160px);
+            
+
+            li a {
+                all: unset;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.activity-container {
+    height: 300px;
+    width: 700px;
+    display: flex;
+    align-items: flex-end;
+    background-color: #FBFBFB;
+    padding: 0px 10px 0px 20px;
+}
+
+.custom-tooltip {
+    background-color: #E60000;
+    color: #fff;
+    padding: 5px 5px;
+    height: auto;
+    max-width: 40px;
+    font-size: 10px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
