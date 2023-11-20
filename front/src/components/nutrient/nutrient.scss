@@ -1,0 +1,63 @@
+.container-nutrient {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 20px;
+
+    .card {
+        display: flex;
+        background-color: #FBFBFB;
+        border-radius: 5px;
+        gap: 23px;
+        padding: 20px;
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+        }
+
+        .icon-Calories {
+            background-color: rgba(255, 0, 0, 0.3);
+        }
+        
+        .icon-Proteines {
+            background-color: rgba(74, 184, 255, 0.3);
+        }
+        
+        .icon-Glucides {
+            background-color: rgba(249, 206, 35, 0.3);
+        }
+        
+        .icon-Lipides {
+            background-color: rgba(253, 81, 129, 0.3);
+        }
+
+        .info-nutrient {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            line-height: 0px;
+
+            p {
+                font-size: 18px;
+                font-weight: 700;
+                color: #232222;
+                margin-bottom: 5px;
+            }
+
+            h3 {
+                font-size: 12px;
+                font-weight: 500;
+                color:#74798C;
+            }
+        }
+
+    }
+} 

@@ -1,50 +1,23 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import '@components/activity/activity.scss'
 
-const data = [
-    {
-        "day": "1",
-        "kilogram": 70,
-        "calories": 240
-    },
-    {
-        "day": "2",
-        "kilogram": 69,
-        "calories": 220
-    },
-    {
-        "day": "3",
-        "kilogram": 70,
-        "calories": 280
-    },
-    {
-        "day": "4",
-        "kilogram": 70,
-        "calories": 500
-    },
-    {
-        "day": "5",
-        "kilogram": 69,
-        "calories": 160
-    },
-    {
-        "day": "6",
-        "kilogram": 69,
-        "calories": 162
-    },
-    {
-        "day": "7",
-        "kilogram": 69,
-        "calories": 390
-    }
-]
 
-const CustomTooltip = ({ active, payload, label,data }) => {
+function Activity ({ dataActivity }) {
+
+  // Formatage des données spécifique pour le graphique
+  const chartData = dataActivity.map((item, index) => ({
+    day: index + 1,
+    kilogram: item.kilogram,
+    calories: item.calories
+  }));
+
+  // Paramètres des infobulles
+  const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
-            <p>{data[label-1].kilogram} kg</p>
-            <p>{data[label-1].calories} kcal</p>
+            <p>{chartData[label-1].kilogram} kg</p>
+            <p>{chartData[label-1].calories} kcal</p>
         </div>
       )
     }
@@ -52,15 +25,13 @@ const CustomTooltip = ({ active, payload, label,data }) => {
     return null
   }
 
-
-function Activity (props) {
-
     return (
-        <div className='activity-container'>    
+        <div className='activity-container'> 
+
             <ResponsiveContainer width="100%" height="90%">
             
                 {/* Paramètres des barres entre elles*/}
-                <BarChart data={data} barGap={10} >
+                <BarChart data={chartData} barGap={10} >
 
                     {/* Titre du graphique */}
                     <text x={0} y={20} fill='#282D30' >
@@ -81,7 +52,7 @@ function Activity (props) {
                     <YAxis dataKey="calories" yAxisId="calories" tickMargin={50} domain={[0, 'dataMax + 10']} hide />
 
                     {/* Paramètres des infobulles */}
-                    <Tooltip content={<CustomTooltip data={data}/>} offset={50} />
+                    <Tooltip content={<CustomTooltip data={chartData}/>} offset={50} />
 
                     {/* Paramètres des barres */}
                     <Bar name="Poids (kg)" dataKey="kilogram" yAxisId="kilogram" barSize={7} radius={[20, 20, 0, 0]} fill="#282D30" />
@@ -90,6 +61,7 @@ function Activity (props) {
                 </BarChart>
                 
             </ResponsiveContainer> 
+            
         </div>
     ) 
 }

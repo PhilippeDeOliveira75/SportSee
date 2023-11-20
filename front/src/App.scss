@@ -4,8 +4,10 @@ body {
 
 #root {
   all: unset;
-  max-width: 1440px;
-  margin: 0 auto;
-  text-align: center;
+}
+
+main {
+  min-width: 1024px;
+  margin: 0;
   font-family: 'Roboto', sans-serif;
 }

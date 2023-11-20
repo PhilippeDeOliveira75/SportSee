@@ -1,10 +1,10 @@
 .activity-container {
-    height: 300px;
-    width: 700px;
+    height: 280px;
     display: flex;
     align-items: flex-end;
     background-color: #FBFBFB;
     padding: 0px 10px 0px 20px;
+    border-radius: 5px;
 }
 
 .custom-tooltip {
@@ -19,4 +19,12 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+Ò
+.recharts-responsive-container {
+    font-size: 14px;
+}
+
+.recharts-legend-item-text {
+    color: #74798C !important;
 }

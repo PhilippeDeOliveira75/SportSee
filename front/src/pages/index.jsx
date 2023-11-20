@@ -1,13 +1,17 @@
 import HeaderHome from "@components/headerHome/headerHome"
-import CardUserHome from "@components/cardUserHome/cardUserHome"
+import CardUser from "@components/cardUser/cardUser"
 import '@pages/index.scss'
+import DataFormater from "@services/dataFormater"
 
 function Home () {
+
+	DataFormater()
+	
   return (
     <div>
       <HeaderHome />
       <div className="card-user-home-container">
-        <CardUserHome />
+        <CardUser />
       </div>
     </div>
   )
