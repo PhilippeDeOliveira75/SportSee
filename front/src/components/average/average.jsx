@@ -15,6 +15,7 @@ function Average ({ dataAverage }) {
 
 
     return (
+      
         <div className="average-container">
           
           <ResponsiveContainer width="100%" height="100%" >
@@ -29,8 +30,6 @@ function Average ({ dataAverage }) {
               <YAxis dataKey="session" domain={['dataMin-10', 'dataMax+10']} hide={true} />
 
               <XAxis dataKey="day" tickLine={false} axisLine={false} stroke='#fff' opacity={0.5} tickMargin={15}/>
-
-              <Tooltip cursor={false} wrapperStyle={{outline: 'none'}} />
 
               <Line type="natural" dataKey="session" stroke='#fff' opacity={0.5} strokeWidth={1.2} dot={false} />
 

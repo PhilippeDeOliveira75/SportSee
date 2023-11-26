@@ -1,43 +1,47 @@
-import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 import '@components/score/score.scss'
 
 function Score ({dataScore}) {
 
+  const pourcentScore = dataScore*100
+ 
+  const scoreCalcul = [{ name: 'Score', value: pourcentScore},{ name: 'Reste', value: 100-pourcentScore}]
+
+
     return(
 
-        <div className="score-container">
-        
-        <ResponsiveContainer width="100%" height="100%" >
-      <RadialBarChart
-        innerRadius="60%"
-        outerRadius="80%"
-        barSize={10}
-        data={dataScore}
-        startAngle={90}
-        endAngle={450}
-      >
-        <PolarAngleAxis
-          type="number"
-          domain={[0, 100]}
-          dataKey="score"
-          angleAxisId={0}
-          tick={false}
-        />
-        <RadialBar
-          label={false}
-          background={false}
-          dataKey="score"
-          angleAxisId={0}
-          cornerRadius={5}
-        />
-        <text>
-          <tspan x={29} y={34}>Score</tspan>
-        </text>
+      <div className="score-container">
 
-      </RadialBarChart>
-    </ResponsiveContainer>
-    </div>
-    )
+        <div className="legend">Score</div>
+
+        <div className="stats">{pourcentScore+"%"}
+          <span>de votre 
+            <br/>objectif
+          </span>
+        </div>
+
+        <ResponsiveContainer  width="100%" height="100%">
+
+          <PieChart>
+
+            <Pie data={scoreCalcul} innerRadius={65} outerRadius={75} radius={[20, 20, 0, ]} paddingAngle={1} startAngle={90} endAngle={470} dataKey="value" >
+
+              {scoreCalcul.map((element,index)=>{
+
+              return(
+
+                <Cell key={`cell-${index}`} fill={index===0?"red":"#ff000023"} />)
+      
+            })}
+
+            </Pie>
+ 
+          </PieChart>
+
+      </ResponsiveContainer>
+  
+  </div>
+  )
 }
 
 export default Score

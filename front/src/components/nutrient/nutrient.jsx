@@ -22,13 +22,14 @@ function Nutrient ({ dataNutrient }) {
 
     function formatValue(key, value) {
         if (key === 'Calories') {
-            return `${value.toLocaleString('fr-FR')}kCal`;
+            return `${value.toLocaleString('fr-FR')} kCal`;
         } else {
-            return `${value}g`;
+            return `${value} g`;
         }
     }
 
     return (
+
         <div className="container-nutrient">
             {Object.entries(chartData).map(([key, value], index) => (
                 <div key={key} className='card'>

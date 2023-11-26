@@ -1,20 +1,27 @@
+
 import HeaderHome from "@components/headerHome/headerHome"
 import CardUser from "@components/cardUser/cardUser"
+
 import '@pages/index.scss'
-import DataFormater from "@services/dataFormater"
+
+import Toggle from "../components/toggle/toggle"
+
 
 function Home () {
 
-	DataFormater()
-	
-  return (
-    <div>
-      <HeaderHome />
-      <div className="card-user-home-container">
-        <CardUser />
-      </div>
-    </div>
-  )
+
+    return (
+        <div>
+            <HeaderHome />
+            <div className="toggle-and-card-container">
+                <Toggle />
+                <h1>Choisissez un utilisateur</h1>
+                <div className="card-container">
+                    <CardUser />
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default Home

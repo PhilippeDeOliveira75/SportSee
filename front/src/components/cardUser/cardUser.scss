@@ -1,19 +1,33 @@
-.w-card-user-home{
+.cardUser {
+    display: flex;
+    gap: 60px;
+
+    .link {
+        text-decoration: none;
+        border-radius: 5px;
+        
+        &.mock {
+            border: 5px solid black;
+        }
+    
+        &.api {
+            border: 5px solid red;
+        }
+    }
+}
+
+.w-card-user-home {
     width: 200px;
     height: 200px;
-    border-radius: 5px;
     background-color: #FBFBFB;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 5px #FF0101;
+
 
     .card-user-home-title {
-        font-size: 16px;
-        font-weight: bold;
+        font-size: 30px;
+        font-weight: 500;
         color: #000000;
-        margin-top: 10px;
-        text-transform: uppercase;
     }
 }
