@@ -1,8 +1,18 @@
-import ApiCaller from "./apiCaller";
+import ApiCaller from "./apiCaller"
+import MockCaller from "./mockCaller"
 
-async function DataFormater(userId) {
+async function DataFormater(userId, context) {
 
-  const allDatas = await ApiCaller(userId)
+  console.log('context', context)
+  
+
+    if (context === 'api') {
+      let allDatas = await ApiCaller(userId)
+      console.log('api', allDatas);
+
+    }
+
+    console.log(allDatas);
 
 
   // Si l'objet userData.user a une propriété todayScore, renommez-la en score

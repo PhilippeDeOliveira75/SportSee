@@ -17,7 +17,9 @@ async function MockCaller(userId) {
     activity: activityData,
     averageSessions: averageSessionsData,
     performance: performanceData
-  }))
+
+  }
+  ))
   
   // Affichage des erreurs dans la console
   .catch(error => console.error('Error:', error))

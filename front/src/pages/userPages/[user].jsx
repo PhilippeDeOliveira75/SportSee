@@ -25,9 +25,9 @@ function User () {
   const [allDatas, setAllDatas] = useState(null);
 
   useEffect(() => {
-    DataFormater(user).then(data => {
-      console.log(data);
-      setAllDatas(data);
+    DataFormater(user, method.method).then(data => {
+      console.log(data)
+      setAllDatas(data)
     });
   }, []) 
 
