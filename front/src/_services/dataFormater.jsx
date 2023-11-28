@@ -22,15 +22,10 @@ async function DataFormater(userId, context) {
   }
   
     allDatas.dataUser = allDatas.user.data.data.userInfos
-
     allDatas.dataActivity = allDatas && allDatas.activity.data.data.sessions
-
     allDatas.dataAverage = allDatas && allDatas.averageSessions.data.data.sessions
-
     allDatas.dataPerformance = allDatas && allDatas.performance.data.data.data
-
     allDatas.dataScore = allDatas && allDatas.user.data.data.score
-
     allDatas.dataNutrient = allDatas && allDatas.user.data.data.keyData
 
   return allDatas
