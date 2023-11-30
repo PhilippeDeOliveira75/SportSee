@@ -1,6 +1,12 @@
 import axios from 'axios'
 
-function ApiCaller(userId) {
+/**
+ * 
+ * @param {sting} userId 
+ * @returns {Promise<Object>}
+ */
+
+async function ApiCaller(userId) {
 
   // Récupération des données de l'API
   return Promise.all([

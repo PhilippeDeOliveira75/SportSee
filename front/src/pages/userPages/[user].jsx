@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 
 import '@pages/userPages/userPage.scss'
 
+import ApiCaller from '@services/apiCaller'
 import DataFormater from '@services/dataFormater'
-import { methodContext } from '@main'
+import { methodContext } from '@app'
 
 import HorizontalNav from '@components/horizontalNav/horizontalNav'
 import VerticalNav from '@components/verticalNav/verticalNav'
@@ -17,23 +18,23 @@ import Nutrient from '@components/nutrient/nutrient'
 
 function User () {
 
+  // Utilisation du context pour récupérer la méthode
   const method = useContext(methodContext)
-  console.log(method);
 
+  // Récupération du paramètre user dans l'URL
   const { user } = useParams()
 
   const [allDatas, setAllDatas] = useState(null);
 
   useEffect(() => {
+    
+    // Appel de la fonction DataFormater
     DataFormater(user, method.method).then(data => {
-      console.log(data)
+
       setAllDatas(data)
     });
   }, []) 
 
-
-
-    
 
   return (
     

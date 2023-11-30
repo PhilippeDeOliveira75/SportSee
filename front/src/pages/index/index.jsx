@@ -1,10 +1,9 @@
-
 import HeaderHome from "@components/headerHome/headerHome"
 import CardUser from "@components/cardUser/cardUser"
 
-import '@pages/index.scss'
+import '@pages/index/index.scss'
 
-import Toggle from "../components/toggle/toggle"
+import Toggle from "../../components/toggle/toggle"
 
 
 function Home () {

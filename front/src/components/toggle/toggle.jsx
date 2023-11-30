@@ -1,17 +1,19 @@
-import React, { useState, useContext, useEffect} from 'react';
-import '@components/toggle/toggle.scss';
-import { methodContext } from '@main';
+import React, { useState, useContext, useEffect} from 'react'
+import '@components/toggle/toggle.scss'
+import { methodContext } from '@app'
 
 function Toggle () {
 
+    // Utilisation du context pour récupérer la méthode
     const { method, setMethod } = useContext(methodContext);
 
     const [isOn, setIsOn] = useState(false);
 
     const handleChange = () => {
-        setIsOn(!isOn);
+        setIsOn(!isOn)
     }
 
+    // Si l'état isOn est à true, on utilise l'API sinon on utilise le mock
     useEffect(() => {
         if (isOn) {
             setMethod('api');

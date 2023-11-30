@@ -1,10 +1,12 @@
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'
 import '@components/score/score.scss'
 
 function Score ({dataScore}) {
 
+  // Multiplication par 100 pour avoir un pourcentage
   const pourcentScore = dataScore*100
- 
+
+  // Calcul total = score + reste (100 - score)
   const scoreCalcul = [{ name: 'Score', value: pourcentScore},{ name: 'Reste', value: 100-pourcentScore}]
 
 

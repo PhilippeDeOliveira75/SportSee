@@ -1,14 +1,16 @@
-import { Radar, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
+import { Radar, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts'
 import '@components/performance/performance.scss'
 
 function Performance ({dataPerformance}) {
 
-    const kinds = [ 'Intensité', 'Vitesse', 'Force', 'Endurance', 'Energie', 'Cardio' ];
+    // Création d'un tableau contenant les noms des catégories
+    const kinds = [ 'Intensité', 'Vitesse', 'Force', 'Endurance', 'Energie', 'Cardio' ]
 
+    // Récupération des catégorie et de leurs valeurs
     const chartData = dataPerformance.map(item => ({
       category : kinds[item.kind - 1],
       value: item.value
-    }));
+    }))
 
     return(
         

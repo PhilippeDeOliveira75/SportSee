@@ -20,8 +20,8 @@ export default defineConfig({
         replacement: path.resolve(__dirname, 'src')
       },
       {
-        find: '@main',
-        replacement: path.resolve(__dirname, 'src/main')
+        find: '@app',
+        replacement: path.resolve(__dirname, 'src/App')
       },
       {
         find: '@services',
