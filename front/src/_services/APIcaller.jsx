@@ -2,18 +2,22 @@ import axios from 'axios'
 
 /**
  * 
- * @param {sting} userId 
+ * @param {string} userId 
  * @returns {Promise<Object>}
  */
 
-async function ApiCaller(userId) {
+// async function ApiCaller(userId) {
+
+const ApiCaller = async (userId) => {
+  
+  const urlPrefix = `http://localhost:3000/user/${userId}`
 
   // Récupération des données de l'API
   return Promise.all([
-    axios.get(`http://localhost:3000/user/${userId}`),
-    axios.get(`http://localhost:3000/user/${userId}/activity`),
-    axios.get(`http://localhost:3000/user/${userId}/average-sessions`),
-    axios.get(`http://localhost:3000/user/${userId}/performance`)
+    axios.get(`${urlPrefix}`),
+    axios.get(`${urlPrefix}/activity`),
+    axios.get(`${urlPrefix}/average-sessions`),
+    axios.get(`${urlPrefix}/performance`)
   ])
   
   // Assignation des données de l'API
@@ -24,9 +28,6 @@ async function ApiCaller(userId) {
     performance: performanceData
   }))
   
-  // Affichage des erreurs dans la console
-  .catch(error => console.error('Error:', error))
-
 
 }
 

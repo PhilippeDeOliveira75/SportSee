@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 
 import '@pages/userPages/userPage.scss'
 
-import ApiCaller from '@services/apiCaller'
 import DataFormater from '@services/dataFormater'
 import { methodContext } from '@app'
 
@@ -27,58 +26,55 @@ function User () {
   const [allDatas, setAllDatas] = useState(null);
 
   useEffect(() => {
-    
     // Appel de la fonction DataFormater
-    DataFormater(user, method.method).then(data => {
-
-      setAllDatas(data)
-    });
+    DataFormater(user, method.method)
+      .then(data => {
+        setAllDatas(data)
+      })     
   }, []) 
 
-
   return (
-    
     <div className='w-horizontalnav-dashboard'>
       <HorizontalNav />
       <div className='dashboard-container'>
         <div className='vertical-bar-container'>
           <VerticalNav />
         </div>
-
-        { allDatas && (
-
-        <div className='w-title-graph-and-info'>
-          <div className='dashboard-title'>
-            <h2>Bonjour {allDatas.dataUser.firstName} </h2>
-            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-          </div>
-
-          <div className='graph-and-info-container'>
-
-            <div className='graph-container'>
-              <div className='w-activity'>
-                <Activity dataActivity = { allDatas.dataActivity } />
-              </div>
-
-              <div className='w-average-intensity-score'>
-                <Average dataAverage = { allDatas.dataAverage } />
-                <Performance dataPerformance = { allDatas.dataPerformance } />
-                <Score dataScore = { allDatas.dataScore } />
-              </div>
+  
+        {allDatas ? (
+          <div className='w-title-graph-and-info'>
+            <div className='dashboard-title'>
+              <h2>Bonjour {allDatas.dataUser.firstName} </h2>
+              <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             </div>
-
-            <div className='info-container'>
-              <Nutrient dataNutrient = { allDatas.dataNutrient } />
+  
+            <div className='graph-and-info-container'>
+  
+              <div className='graph-container'>
+                <div className='w-activity'>
+                  <Activity dataActivity = { allDatas.dataActivity } />
+                </div>
+  
+                <div className='w-average-intensity-score'>
+                  <Average dataAverage = { allDatas.dataAverage } />
+                  <Performance dataPerformance = { allDatas.dataPerformance } />
+                  <Score dataScore = { allDatas.dataScore } />
+                </div>
+              </div>
+  
+              <div className='info-container'>
+                <Nutrient dataNutrient = { allDatas.dataNutrient } />
+              </div>
+  
             </div>
-
+            
           </div>
-          
-        </div>
-
+        ) : (
+          <div className='errorMessage'>Les données ne sont pas disponible !</div>
         )}
-
+  
       </div>
-  </div>
+    </div>
   )
 }
 

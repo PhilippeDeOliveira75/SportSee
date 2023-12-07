@@ -1,5 +1,5 @@
-import ApiCaller from "./apiCaller"
-import MockCaller from "./mockCaller"
+import ApiCaller from "@services/apiCaller"
+import MockCaller from "@services/mockCaller"
 
 /**
  * 
@@ -12,11 +12,9 @@ async function DataFormater(userId, context) {
 
   // Initialisation de l'objet qui contiendra toutes les données
   let allDatas
-
   // Appel des données selon la valeur du toggle grace au paramètre context
   if (context === 'api') {
     allDatas = await ApiCaller(userId)
-
   }
   else{
     allDatas = await MockCaller(userId)
